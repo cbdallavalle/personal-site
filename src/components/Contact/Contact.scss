@@ -1,0 +1,38 @@
+.Contact {
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 200px;
+}
+
+.Contact button,
+.Contact a {
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
+  background-repeat: no-repeat;
+}
+
+.Contact button:hover,
+.Contact a:hover {
+  cursor: pointer;
+  background-color: #989797;
+}
+
+#contact {
+  background-image: url('../../assets/multimedia.svg');
+  background-position: 5.5px 9px;
+  background-size: 26px;
+}
+
+#linkedIn {
+  background-image: url('../../assets/linkedin-logo.svg');
+  background-position: 9.3px 8px;
+  background-size: 24px;
+}
+
+#gitHub {
+  background-image: url('../../assets/github-big-logo.svg');
+  background-size: 30px;
+  background-position: 6px 7px;
+}

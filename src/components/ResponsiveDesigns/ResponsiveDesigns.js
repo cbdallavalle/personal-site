@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import { Parallax } from 'react-scroll-parallax'
-import PhotoCarousel from '../PhotoCarousel/PhotoCarousel'
-import pokemonPhone from '../../assets/pokemon_phone.png'
-import pokemonIpad from '../../assets/pokemon_ipad.png'
-import pokemonWeb from '../../assets/pokemon_web.png'
-import websiteBar from '../../assets/website_bar.png'
+import Pokecard from './Pokecard/Pokecard';
 
 import './ResponsiveDesigns.scss'
 
@@ -62,91 +58,6 @@ class ResponsiveDesigns extends Component {
     }
   }
 
-  createFormat() {
-    const { containerClass } = this.state
-    if (containerClass === "full") {
-      return (
-        <section className={`app-display app-display__${containerClass}`}>
-          <div className="website-container">
-            <img id='website-bar' src={websiteBar} />
-            <img
-              id='pokemon-web'
-              src={pokemonWeb}
-              alt="pokemon web"
-              />
-          </div>
-          <img
-            id='pokemon-ipad'
-            src={pokemonIpad}
-            alt="pokemon ipad"
-          />
-          <img
-            id='pokemon-phone'
-            src={pokemonPhone}
-            alt="pokemon phone"
-          />
-        </section>
-      )
-    } 
-    else if (containerClass === "midsize") {
-      return (
-        <section className={`app-display app-display__${containerClass}`}>
-          <div className="website-container">
-            <img id='website-bar' src={websiteBar} />
-            <img
-              id='pokemon-web'
-              src={pokemonWeb}
-              alt="pokemon web"
-            />
-          </div>
-          <div className="device-container">
-            <img
-              id='pokemon-ipad'
-              src={pokemonIpad}
-              alt="pokemon ipad"
-              />
-            <img
-              id='pokemon-phone'
-              src={pokemonPhone}
-              alt="pokemon phone"
-            />
-          </div>
-        </section>
-      )
-    } else {
-      const slides = [
-        <div className="website-container" style={{ width: 'auto', height: 'auto'}}>
-          <img id='website-bar' src={websiteBar} style={{ width: '100%' }}/>
-          <img
-            id='pokemon-web'
-            src={pokemonWeb}
-            alt="pokemon web"
-            style={{ height: 'auto' }}
-          />
-        </div>,
-        <img
-          id='pokemon-ipad'
-          src={pokemonIpad}
-          alt="pokemon ipad"
-          style={{ height: '369px', width: 'auto' }}
-
-        />,
-        <img
-          id='pokemon-phone'
-          src={pokemonPhone}
-          alt="pokemon phone"
-          style={{ height: '369px', width: 'auto' }}
-
-        />
-      ]
-      return (
-        <section className={`app-display app-display__${containerClass}`}>
-          <PhotoCarousel slides={slides} />
-        </section>
-      )
-    }
-  }
-
   render() {
     const halfWindowWidth = window.innerWidth / 2
     const twoMargin = this.state.disabledTwo ? 'auto' : 0
@@ -186,7 +97,7 @@ class ResponsiveDesigns extends Component {
           </div>
         </Parallax>
         
-          { this.createFormat() }
+        <Pokecard containerClass={this.state.containerClass} />
 
       </div>
     )

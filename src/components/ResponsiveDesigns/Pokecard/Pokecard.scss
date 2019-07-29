@@ -1,0 +1,74 @@
+@import '../../../styles/globals.scss';
+
+.Pokecard {
+  .app-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 70px;
+    max-width: 1410px;
+    height: 515px;
+
+    &__midsize {
+      flex-direction: column-reverse;
+      height: 1030px;
+      align-items: center;
+    }
+
+    img {
+      width: 200px;
+    }
+
+    .website-container {
+      display: flex;
+      flex-direction: column;
+      width: 514px;
+      box-shadow: 2px 2px 2px #c2c2c2, -2px -1px 2px #c2c2c2;
+      height: auto;
+      border-top-left-radius: 6px;
+
+      #website-bar {
+        width: 100%;
+      }
+      #pokemon-web {
+        width: 100%;
+      }
+    }
+
+    .device-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 585px;
+    }
+
+    #pokemon-ipad {
+      width: 363px;
+    }
+
+    #pokemon-phone {
+      width: 200px;
+    }
+  }
+
+  p {
+    text-align: center;
+    width: 100%;
+    font-size: 26px;
+    font-family: $open-sans;
+    box-sizing: border-box;
+    padding: 80px 120px 0 120px;
+    padding: left;
+    line-height: 50px;
+    font-style: italic;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Pokecard {
+    .website-container {
+      height: auto;
+    }
+  }
+}

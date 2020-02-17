@@ -8,94 +8,81 @@ import websiteBar from '../../../assets/website_bar.png'
 import './Pokecard.scss'
 
 const Pokecard = (props) => {
-    const { containerClass } = props
-    let pokecardDisplay
-    if (containerClass === "full") {
-      pokecardDisplay = (
-        <section className={`app-display app-display__${containerClass}`}>
-          <div className="website-container">
-            <img id='website-bar' src={websiteBar} />
-            <img
-              id='pokemon-web'
-              src={pokemonWeb}
-              alt="pokemon web"
-            />
-          </div>
-          <img
-            id='pokemon-ipad'
-            src={pokemonIpad}
-            alt="pokemon ipad"
-          />
-          <img
-            id='pokemon-phone'
-            src={pokemonPhone}
-            alt="pokemon phone"
-          />
-        </section>
-      )
-    }
-    else if (containerClass === "midsize") {
-      pokecardDisplay = (
-        <section className={`app-display app-display__${containerClass}`}>
-          <div className="website-container">
-            <img id='website-bar' src={websiteBar} />
-            <img
-              id='pokemon-web'
-              src={pokemonWeb}
-              alt="pokemon web"
-            />
-          </div>
-          <div className="device-container">
-            <img
-              id='pokemon-ipad'
-              src={pokemonIpad}
-              alt="pokemon ipad"
-            />
-            <img
-              id='pokemon-phone'
-              src={pokemonPhone}
-              alt="pokemon phone"
-            />
-          </div>
-        </section>
-      )
-    } else {
-      const slides = [
-        <div className="website-container" style={{ width: 'auto', height: 'auto' }}>
-          <img id='website-bar' src={websiteBar} style={{ width: '100%' }} />
-          <img
-            id='pokemon-web'
-            src={pokemonWeb}
-            alt="pokecard web format"
-            style={{ height: 'auto' }}
-          />
-        </div>,
-        <img
-          id='pokemon-ipad'
-          src={pokemonIpad}
-          alt="pokemon ipad format"
-          style={{ height: '369px', width: 'auto' }}
+  const { containerClass } = props
 
-        />,
-        <img
-          id='pokemon-phone'
-          src={pokemonPhone}
-          alt="pokemon phone format"
-          style={{ height: '369px', width: 'auto' }}
+  /* Image Containers */
+  let webContainer = (
+    <div className="website-container">
+      <img
+        id='website-bar'
+        src={websiteBar}
+        alt='web-bar'
+      />
+      <img
+        id='pokemon-web'
+        src={pokemonWeb}
+        alt="pokemon web"
+      />
+    </div>
+  )
 
-        />
-      ]
-      pokecardDisplay = (
-        <section className={`app-display app-display__${containerClass}`}>
-          <PhotoCarousel slides={slides} />
-        </section>
-      )
-    }
+  let ipadImage = (
+    <img
+      id='pokemon-ipad'
+      src={pokemonIpad}
+      alt="pokemon ipad"
+    />
+  )
+
+  let phoneImage = (
+    <img
+      id='pokemon-phone'
+      src={pokemonPhone}
+      alt="pokemon phone"
+    />
+  )
+
+  /* Image Configuratiton */
+  let pokecardDisplay
+
+  if (containerClass === 'full') {
+    pokecardDisplay = (
+      <article className={`app-display app-display--${containerClass}`}>
+        { webContainer }
+        { ipadImage }
+        { phoneImage }
+      </article>
+    )
+  }
+  else if (containerClass === "midsize") {
+    pokecardDisplay = (
+      <article className={`app-display app-display--${containerClass}`}>
+        {webContainer}
+        <div className="device-container">
+          {ipadImage}
+          {phoneImage}
+        </div>
+      </article>
+    )
+  }
+  else {
+    const slides = [
+      webContainer,
+      ipadImage,
+      phoneImage
+    ]
+    pokecardDisplay = (
+      <article className={`app-display app-display--${containerClass}`}>
+        <PhotoCarousel slides={slides} />
+      </article>
+    )
+  }
+
   return (
     <div className='Pokecard'>
       { pokecardDisplay }
-      <p>
-        One of my first static css designs and one of my favorites. I had a great time picking up my old Pokémon cards and recreating them digitally!
+      <p className='figure-captions'>
+        One of my first static css designs and one of my favorites. I loved recreating my old Pokémon cards digitally!
       </p>
     </div>
   )

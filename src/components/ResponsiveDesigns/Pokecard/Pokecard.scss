@@ -8,9 +8,9 @@
     align-items: flex-start;
     margin-top: 70px;
     max-width: 1410px;
-    height: 515px;
+    height: auto;
 
-    &__midsize {
+    &--midsize {
       flex-direction: column-reverse;
       height: 1030px;
       align-items: center;
@@ -34,7 +34,7 @@
       #pokemon-web {
         width: 100%;
       }
-    }
+  }
 
     .device-container {
       display: flex;
@@ -51,24 +51,27 @@
       width: 200px;
     }
   }
-
-  p {
-    text-align: center;
-    width: 100%;
-    font-size: 26px;
-    font-family: $open-sans;
-    box-sizing: border-box;
-    padding: 80px 120px 0 120px;
-    padding: left;
-    line-height: 50px;
-    font-style: italic;
-  }
 }
 
 @media only screen and (max-width: 600px) {
   .Pokecard {
-    .website-container {
-      height: auto;
+    .app-display {
+      .website-container {
+        height: auto;
+        width: 90%;
+
+        #website-bar {
+          width: 100%;
+        }
+
+        #pokemon-web {
+          height: auto;
+        }
+      }
+      #pokemon-ipad, #pokemon-phone {
+        height: 369px;
+        width: auto;
+      }
     }
   }
 }

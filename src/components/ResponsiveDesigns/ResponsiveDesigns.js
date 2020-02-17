@@ -97,7 +97,9 @@ class ResponsiveDesigns extends Component {
           </div>
         </Parallax>
         
-        <Pokecard containerClass={this.state.containerClass} />
+        <Pokecard 
+          containerClass={this.state.containerClass} 
+        />
 
       </div>
     )

@@ -16,27 +16,11 @@
     font-size: 25px;
   }
   
-  #email {
-    color: $email-light-red;
-
-    &:hover {
-      color: $email-red;
-    };
-  }
-
-  #linkedin {
-    color: $linkedin-light-blue;
-
-    &:hover {
-      color: $linkedin-blue;
-    };
-  }
-
-  #github {
+  i {
     color: $github-light;
-  
+
     &:hover {
-      color: $black;
+      color: $resume-turqoise;
     };
   }
 }

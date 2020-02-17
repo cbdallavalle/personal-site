@@ -9,6 +9,17 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {}
+
+    this.handleWindowResize = this.handleWindowResize.bind(this)
+    this.windowSize = window.innerWidth
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleWindowResize);
+  }
+
+  handleWindowResize() {
+    this.windowSize = window.innerWidth
   }
 
   render() {

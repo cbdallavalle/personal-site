@@ -1,31 +1,37 @@
 import React, { Component } from 'react'
-import { Parallax } from 'react-scroll-parallax'
 import ResponsiveDesigns from '../ResponsiveDesigns/ResponsiveDesigns'
-import './Body.scss'
+import Achievements from '../Achievements/Achievements'
 
+import './Body.scss'
 
 export class Body extends Component {
 
-  constructor() {
-    super()
-    this.state = {
-      disabledOne: false
-    }
+  constructor(props) {
+    super(props)
 
-
+    this.handleWindowResize = this.handleWindowResize.bind(this)
+    this.windowWidth = window.innerWidth
   }
 
+  componentDidMount() {
+    window.addEventListener('resize', this.handleWindowResize);
+  }
 
+  handleWindowResize() {
+    this.windowWidth = window.innerWidth
+  }
 
   render() {
-    const disabledOne = this.state.disabledOne ? true : false
     return (
       <div className="Body"
       >
-        <ResponsiveDesigns />
+        <ResponsiveDesigns 
+          windowWidth={ this.windowWidth }
+        />
+        <Achievements
+          windowWidth={ this.windowWidth }
+        />
       </div>
-    );
+    )
   }
 }
-
-

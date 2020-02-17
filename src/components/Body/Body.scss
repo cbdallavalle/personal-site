@@ -3,9 +3,34 @@
 .Body {
   background-color: $background-white;
   width: 100%;
-  height: 300vh;
   box-sizing: border-box;
-  padding-top: 100px;
+  padding-top: 200px;
   
+  .figure-captions {
+    text-align: center;
+    width: 100%;
+    font-size: 26px;
+    font-family: $open-sans;
+    box-sizing: border-box;
+    padding: 80px 120px 0 120px;
+    padding: left;
+    line-height: 50px;
+    font-style: italic;
+  }
+  hr {
+    width: 80%;
+    background-color: $resume-turqoise;
+    border: none;
+    height: 6px;
+    margin-top: 80px;
+  }
+}
 
+@media only screen and (max-width: 600px) {
+  .Body {
+    .figure-captions {
+      padding: 10px;
+      font-size: 20px;
+    }
+  }
 }
